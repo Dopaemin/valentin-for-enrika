@@ -205,16 +205,36 @@ window.addEventListener("DOMContentLoaded", () => {
 
   // Function to trigger vibration (mobile haptic feedback)
   function triggerVibration(pattern) {
-    if ("vibrate" in navigator) {
+    // Check for vibration support and browser compatibility
+    if ("vibrate" in navigator && !isIOSSafari()) {
       try {
-        navigator.vibrate(pattern);
-        console.log("Vibration triggered:", pattern);
+        const success = navigator.vibrate(pattern);
+        if (success) {
+          console.log("Vibration triggered:", pattern);
+        } else {
+          console.log("Vibration call failed (device may be in silent mode)");
+        }
       } catch (error) {
         console.log("Vibration not supported or failed:", error);
       }
     } else {
-      console.log("Vibration API not supported on this device");
+      if (isIOSSafari()) {
+        console.log(
+          "Vibration API not supported on iOS Safari - Apple doesn't allow web vibration",
+        );
+      } else {
+        console.log("Vibration API not supported on this device/browser");
+      }
     }
+  }
+
+  // Detect iOS Safari (which doesn't support vibration)
+  function isIOSSafari() {
+    const userAgent = navigator.userAgent;
+    const isIOS = /iPad|iPhone|iPod/.test(userAgent);
+    const isSafari =
+      /Safari/.test(userAgent) && !/Chrome|CriOS|FxiOS/.test(userAgent);
+    return isIOS || isSafari;
   }
 
   // Function to create floating hearts and roses
