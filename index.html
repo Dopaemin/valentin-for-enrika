@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Valentine's Brief</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Animated background hearts -->
+    <div class="background-hearts" id="bgHearts"></div>
+
+    <!-- Rose glass (behind card) -->
+    <div class="rose-container">
+      <div class="glass"></div>
+    </div>
+
+    <!-- Rose foreground (above card): glow + rose image -->
+    <div class="rose-foreground" aria-hidden="true">
+      <div class="glow"></div>
+      <div class="rose-image">
+        <img src="rose.png" alt="Rose" />
+      </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="container">
+      <h1>Willst du Enrika, mein Valentine sein?</h1>
+
+      <div class="buttons">
+        <button id="yesBtn" class="btn yes">Ja</button>
+        <button id="noBtn" class="btn no">Nein</button>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay hidden">
+      <div class="message">LETS GOOOO</div>
+      <div id="hearts" class="hearts" aria-hidden="true"></div>
+    </div>
+
+    <!-- Image Transition Pages -->
+    <div id="imageTransition1" class="image-transition hidden">
+      <div class="transition-hearts"></div>
+      <div class="transition-sparkles"></div>
+      <img src="1.jpeg" alt="Image 1" />
+    </div>
+
+    <div id="imageTransition2" class="image-transition hidden">
+      <div class="transition-hearts"></div>
+      <div class="transition-sparkles"></div>
+      <img src="2.jpeg" alt="Image 2" />
+    </div>
+
+    <div id="imageTransition3" class="image-transition hidden">
+      <div class="transition-hearts"></div>
+      <div class="transition-sparkles"></div>
+      <img src="3.jpeg" alt="Image 3" />
+      <div class="overlay-text">
+        <h2>💕 Du bist die beste! 💕</h2>
+        <div class="hearts-overlay">💖 💗 💕 💘 💝 💖 💗 💕</div>
+      </div>
+    </div>
+
+    <!-- Success Page -->
+    <div id="successPage" class="success-page">
+      <div class="content">
+        <h2>💕🦖</h2>
+        <p>Schau mal unter deinem Bett nach! 💌🥰</p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
