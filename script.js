@@ -203,6 +203,20 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".background-hearts").style.display = "none";
   }
 
+  // Function to trigger vibration (mobile haptic feedback)
+  function triggerVibration(pattern) {
+    if ("vibrate" in navigator) {
+      try {
+        navigator.vibrate(pattern);
+        console.log("Vibration triggered:", pattern);
+      } catch (error) {
+        console.log("Vibration not supported or failed:", error);
+      }
+    } else {
+      console.log("Vibration API not supported on this device");
+    }
+  }
+
   // Function to create floating hearts and roses
   function createFloatingElements(container) {
     const hearts = ["💖", "💕", "💗", "💘", "💝", "❤️", "💓", "💞"];
@@ -256,6 +270,9 @@ window.addEventListener("DOMContentLoaded", () => {
     yesBtn.disabled = true;
     noBtn.disabled = true;
 
+    // Trigger initial celebration vibration (excited heartbeat)
+    triggerVibration([300, 100, 300, 100, 300, 200, 800]);
+
     document.body.classList.add("celebrate");
     overlay.classList.remove("hidden");
 
@@ -271,6 +288,9 @@ window.addEventListener("DOMContentLoaded", () => {
       overlay.classList.add("hidden");
       imageTransition1.classList.remove("hidden");
       imageTransition1.classList.add("show");
+
+      // Trigger vibration for first image transition (gentle heartbeat pattern)
+      triggerVibration([200, 100, 200, 100, 400]);
 
       // Add floating animations
       const heartsContainer1 =
@@ -290,6 +310,9 @@ window.addEventListener("DOMContentLoaded", () => {
         imageTransition2.classList.remove("hidden");
         imageTransition2.classList.add("show");
 
+        // Trigger vibration for second image transition (romantic pulse)
+        triggerVibration([150, 50, 150, 50, 300, 100, 500]);
+
         // Add floating animations
         const heartsContainer2 =
           imageTransition2.querySelector(".transition-hearts");
@@ -308,6 +331,9 @@ window.addEventListener("DOMContentLoaded", () => {
         imageTransition2.classList.add("hidden");
         imageTransition3.classList.remove("hidden");
         imageTransition3.classList.add("show");
+
+        // Trigger vibration for third image transition (celebration pattern)
+        triggerVibration([100, 50, 100, 50, 100, 50, 200, 100, 600]);
 
         // Add floating animations
         const heartsContainer3 =
