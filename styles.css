@@ -622,6 +622,10 @@ h1 {
   text-shadow: 0 8px 24px rgba(255, 111, 163, 0.4);
   font-weight: 700;
   animation: pulse-message 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 @keyframes pulse-message {
@@ -723,6 +727,9 @@ body.celebrate {
   color: white;
   z-index: 2001;
   animation: textFadeIn 1200ms ease-out 400ms both;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .overlay-text h2 {
@@ -733,12 +740,16 @@ body.celebrate {
     0 0 20px rgba(255, 105, 180, 0.6);
   font-weight: 700;
   animation: heartPulse 2s ease-in-out infinite;
+  text-align: center;
+  width: 100%;
 }
 
 .hearts-overlay {
   font-size: 32px;
   animation: heartsFloat 3s ease-in-out infinite;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  width: 100%;
 }
 
 @keyframes imageZoomIn {
@@ -911,5 +922,39 @@ body.celebrate {
   }
   .buttons {
     gap: 15px;
+  }
+
+  /* Mobile text centering fixes */
+  .overlay .message {
+    font-size: 48px;
+    padding: 0 15px;
+  }
+
+  .overlay-text h2 {
+    font-size: 36px;
+    padding: 0 10px;
+  }
+
+  .hearts-overlay {
+    font-size: 24px;
+    padding: 0 10px;
+  }
+
+  .success-page h2 {
+    font-size: 48px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .success-page p {
+    font-size: 24px;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .success-page .content {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 }
